@@ -16,19 +16,39 @@
 
 		.wrapper {
 			display: grid;
-			grid-template: 5vh 45vh 50vh / 70%;
+			grid-template: 8vh 52vh 50vh / 70%;
 			border: 1px solid red;
 			justify-content: center;
 		}
 
 		.wrapper .item {
 			border: 1px solid blue;
+			position: relative;
 		}
 
 		.wrapper .item:nth-child(2) img{
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
+		}
+
+		.controls-slide {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+		}
+
+		.controls-slide .bt {
+			border: 2px solid #FFFFFF;
+			display: inline-block;
+			height: 7px;
+			width: 7px;
+			border-radius: 3.5px;
+			background-color: #FFFFFF;
+		}
+
+		.controls-slide .bt:hover{
+			cursor: pointer;
 		}
 
 
@@ -39,6 +59,11 @@
 		<div class="item"></div>
 		<div class="item slide">
 			<img class="img-slide" src="images/image1.jpg" alt="">
+			<div class="controls-slide">
+				<div class="bt bt1"></div>
+				<div class="bt bt2"></div>
+				<div class="bt bt3"></div>
+			</div>
 		</div>
 		<div class="item"></div>
 	</div>
