@@ -44,6 +44,9 @@
 			height: 7px;
 			width: 7px;
 			border-radius: 3.5px;
+		}
+
+		.active {
 			background-color: #FFFFFF;
 		}
 
@@ -60,12 +63,58 @@
 		<div class="item slide">
 			<img class="img-slide" src="images/image1.jpg" alt="">
 			<div class="controls-slide">
-				<div class="bt bt1"></div>
+				<div class="bt bt1 active"></div>
 				<div class="bt bt2"></div>
 				<div class="bt bt3"></div>
 			</div>
 		</div>
-		<div class="item"></div>
+		<div class="item">Content</div>
 	</div>
+	<script>
+		const img_slide = document.querySelector('.img-slide');
+		const bt1_slide = document.querySelector('.bt1');
+		const bt2_slide = document.querySelector('.bt2');
+		const bt3_slide = document.querySelector('.bt3');
+		
+		let counter = 0;
+				
+		bt1_slide.addEventListener('click', function(){
+			console.log("Click en Boton 1");
+			counter = 0;
+			bt1_slide.classList.add('active');
+			bt2_slide.classList.remove('active');
+			bt3_slide.classList.remove('active');
+		});
+
+		bt2_slide.addEventListener('click', function(){
+			counter = 1;
+			bt2_slide.classList.add('active');
+			bt1_slide.classList.remove('active');
+			bt3_slide.classList.remove('active');
+		});
+		bt3_slide.addEventListener('click', function(){
+			console.log("Click en Boton 3");
+			counter = 2;
+			bt3_slide.classList.add('active');
+			bt1_slide.classList.remove('active');
+			bt2_slide.classList.remove('active');
+		});
+
+
+		var images_collection = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg"];
+
+
+		setInterval(()=>{
+			console.log(images_collection.length);
+			if(counter < images_collection.length){
+				img_slide.setAttribute('src', images_collection[counter]);
+				counter++;
+			}else{
+				counter = 0;
+			}
+		},3000);
+
+
+	</script>
 </body>
 </html>
