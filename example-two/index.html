@@ -39,7 +39,7 @@
 		}
 
 		.controls-slide .bt {
-			border: 2px solid #FFFFFF;
+			border: 1px solid #FFFFFF;
 			display: inline-block;
 			height: 7px;
 			width: 7px;
@@ -53,8 +53,6 @@
 		.controls-slide .bt:hover{
 			cursor: pointer;
 		}
-
-
 	</style>
 </head>
 <body>
@@ -81,6 +79,7 @@
 		bt1_slide.addEventListener('click', function(){
 			console.log("Click en Boton 1");
 			counter = 0;
+			console.log(counter);
 			bt1_slide.classList.add('active');
 			bt2_slide.classList.remove('active');
 			bt3_slide.classList.remove('active');
@@ -88,32 +87,52 @@
 
 		bt2_slide.addEventListener('click', function(){
 			counter = 1;
+			console.log(counter);
 			bt2_slide.classList.add('active');
 			bt1_slide.classList.remove('active');
 			bt3_slide.classList.remove('active');
 		});
+
 		bt3_slide.addEventListener('click', function(){
 			console.log("Click en Boton 3");
 			counter = 2;
+			console.log(counter);
 			bt3_slide.classList.add('active');
 			bt1_slide.classList.remove('active');
 			bt2_slide.classList.remove('active');
 		});
-
-
+		
+		
 		var images_collection = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg"];
 
 
 		setInterval(()=>{
 			console.log(images_collection.length);
-			if(counter < images_collection.length){
+			var array_images_size = images_collection.length;
+			if(counter < array_images_size){
 				img_slide.setAttribute('src', images_collection[counter]);
 				counter++;
+				switch(counter < 4){
+					case counter == 1: 
+						bt1_slide.classList.add('active');
+						bt2_slide.classList.remove('active');
+						bt3_slide.classList.remove('active');
+						break;
+					case counter == 2:
+						bt2_slide.classList.add('active');
+						bt1_slide.classList.remove('active');
+						bt3_slide.classList.remove('active');
+						break;
+					case counter == 3:
+						bt3_slide.classList.add('active');
+						bt1_slide.classList.remove('active');
+						bt2_slide.classList.remove('active');
+						break;
+				}
 			}else{
 				counter = 0;
 			}
 		},3000);
-
 
 	</script>
 </body>
