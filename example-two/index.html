@@ -77,9 +77,7 @@
 		let counter = 0;
 				
 		bt1_slide.addEventListener('click', function(){
-			console.log("Click en Boton 1");
 			counter = 0;
-			console.log(counter);
 			bt1_slide.classList.add('active');
 			bt2_slide.classList.remove('active');
 			bt3_slide.classList.remove('active');
@@ -87,16 +85,13 @@
 
 		bt2_slide.addEventListener('click', function(){
 			counter = 1;
-			console.log(counter);
 			bt2_slide.classList.add('active');
 			bt1_slide.classList.remove('active');
 			bt3_slide.classList.remove('active');
 		});
 
 		bt3_slide.addEventListener('click', function(){
-			console.log("Click en Boton 3");
 			counter = 2;
-			console.log(counter);
 			bt3_slide.classList.add('active');
 			bt1_slide.classList.remove('active');
 			bt2_slide.classList.remove('active');
